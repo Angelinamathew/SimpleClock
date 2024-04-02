@@ -4,12 +4,14 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
 
-public class SimpleClock extends JFrame {
+public class SimpleClock extends JFrame implements ActionListener {
     
         Calendar calendar;
         SimpleDateFormat timeFormat;
@@ -51,8 +53,17 @@ public class SimpleClock extends JFrame {
             dateLabel=new JLabel();
             dateLabel.setFont(new Font("Ink Free",Font.BOLD,30));
 
+            //button1
+            button1 = new JButton();
+            button1.setBounds(400, 300, 300, 250);
+            button1.addActionListener(this);
+            button1.setText("12/24");
+            //button2
+            button1 = new JButton();
+            button1.setBounds(400, 300, 300, 250);
+            button1.addActionListener(this);
+            button1.setText("GMT TIME");
 
-            JButton button = new JButton("12/24");
 
 
     
@@ -60,8 +71,9 @@ public class SimpleClock extends JFrame {
             this.add(timeLabel);
             this.add(dayLabel);
             this.add(dateLabel);
-            this.add(button);
             this.setVisible(true);
+            this.add(button1);
+            this.add(button1);
     
             setTimer();
         }
@@ -87,4 +99,9 @@ public class SimpleClock extends JFrame {
         public static void main(String[] args) {
             new SimpleClock();
         }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
+}
