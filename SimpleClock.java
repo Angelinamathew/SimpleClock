@@ -59,15 +59,29 @@ public class SimpleClock extends JFrame implements ActionListener {
             button1.addActionListener(this);
             button1.setText("12/24");
             //button2
-            button1 = new JButton();
-            button1.setBounds(400, 300, 300, 250);
-            button1.addActionListener(this);
-            button1.setText("GMT TIME");
+            button2 = new JButton();
+            button2.setBounds(400, 300, 300, 250);
+            button2.addActionListener(this);
+            button2.setText("GMT TIME");
+            // switching cases
+            button2 = new JButton(new AbstractAction("GMT") {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == button1){
+                        timeFormat = new SimpleDateFormat("HH:mm:ss");
+                        dayFormat = new SimpleDateFormat("EEEE");
+                        dateFormat = new SimpleDateFormat("ss MMMM, yyyy");
+                        timeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                        dayFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+                    }
+
+                }
+            });
 
 
 
-    
-    
             this.add(timeLabel);
             this.add(dayLabel);
             this.add(dateLabel);
@@ -77,6 +91,7 @@ public class SimpleClock extends JFrame implements ActionListener {
     
             setTimer();
         }
+
     
         public void setTimer() {
             while (true) {
@@ -100,8 +115,14 @@ public class SimpleClock extends JFrame implements ActionListener {
             new SimpleClock();
         }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == button1){
+                timeFormat = new SimpleDateFormat("HH:mm:ss");
+                dayFormat = new SimpleDateFormat("EEEE");
+                dateFormat = new SimpleDateFormat("ss MMMM, yyyy");
+            }
 
     }
 }
