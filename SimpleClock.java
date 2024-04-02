@@ -70,7 +70,7 @@ public class SimpleClock extends JFrame implements ActionListener {
                     if (e.getSource() == button1){
                         timeFormat = new SimpleDateFormat("HH:mm:ss");
                         dayFormat = new SimpleDateFormat("EEEE");
-                        dateFormat = new SimpleDateFormat("ss MMMM, yyyy");
+                        dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
                         timeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
                         dayFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
                         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -121,7 +121,7 @@ public class SimpleClock extends JFrame implements ActionListener {
             if (e.getSource() == button1){
                 timeFormat = new SimpleDateFormat("HH:mm:ss");
                 dayFormat = new SimpleDateFormat("EEEE");
-                dateFormat = new SimpleDateFormat("ss MMMM, yyyy");
+                dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
             }
 
     }
